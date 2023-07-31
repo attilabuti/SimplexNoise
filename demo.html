@@ -1,0 +1,29 @@
+<html>
+<head>
+    <style>
+        body {overflow: hidden; margin: 0; padding: 0}
+    </style>
+</head>
+<body>
+    <canvas></canvas>
+    <script src="simplex_noise_2d.min.js"></script>
+    <script>
+        const canvas = document.querySelector("canvas");
+        const ctx = canvas.getContext("2d");
+
+        const width = canvas.width = window.innerWidth;
+        const height = canvas.height = window.innerHeight;
+        const size = width / 256;
+        const pixels = 2 / 150;
+
+        s(1337);
+
+        for (let y = 0; y < 2; y += pixels / 2) {
+            for (let x = 0; x < 2; x += pixels / 2) {
+                ctx.fillStyle = `hsl(${parseInt(b(x, y, 8, 1, 4, 0.5, 2.0) * 250)}, 50%, 50%)`;
+                ctx.fillRect(x / 2 * canvas.width, y / 2 * canvas.width, size, size);
+            }
+        }
+    </script>
+</body>
+</html>
